@@ -14,7 +14,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/api/customers")
-@CrossOrigin(origins = "*")
 public class CustomerController {
 
     @Autowired

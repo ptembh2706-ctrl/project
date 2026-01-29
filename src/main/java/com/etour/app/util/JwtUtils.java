@@ -16,10 +16,17 @@ import java.util.function.Function;
 @Component
 public class JwtUtils {
 
-    // Use a strong secret key. In production, store this in application.properties
-    // or environment variables.
-    private static final Key SECRET_KEY = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+    @org.springframework.beans.factory.annotation.Value("${jwt.secret}")
+    private String secretKey;
+
+    private Key key;
+
     private static final long EXPIRATION_TIME = 1000 * 60 * 60 * 10; // 10 hours
+
+    @jakarta.annotation.PostConstruct
+    public void init() {
+        this.key = Keys.hmacShaKeyFor(io.jsonwebtoken.io.Decoders.BASE64.decode(secretKey));
+    }
 
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
@@ -32,7 +39,7 @@ public class JwtUtils {
 
     private Claims extractAllClaims(String token) {
         return Jwts.parserBuilder()
-                .setSigningKey(SECRET_KEY)
+                .setSigningKey(key)
                 .build()
                 .parseClaimsJws(token)
                 .getBody();
@@ -53,7 +60,7 @@ public class JwtUtils {
                 .setSubject(subject)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
-                .signWith(SECRET_KEY, SignatureAlgorithm.HS256)
+                .signWith(key, SignatureAlgorithm.HS256)
                 .compact();
     }
 

@@ -1,12 +1,13 @@
 package com.etour.app.controller;
+
 import com.etour.app.dto.DestinationDTO;
 import com.etour.app.service.DestinationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+
 @RestController
 @RequestMapping("/api/destinations")
-@CrossOrigin(origins = "*")
 public class DestinationController {
 
     @Autowired

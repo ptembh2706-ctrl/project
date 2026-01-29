@@ -142,6 +142,10 @@ public class BookingServiceImpl implements BookingService {
 
         // ---------------- SAVE PASSENGERS ----------------
 
+        if (totalPassengers <= 0) {
+            throw new RuntimeException("Total passengers must be greater than zero");
+        }
+
         // FIXED BigDecimal Division (NO ERROR NOW)
         BigDecimal perPassengerAmount = tourAmount.divide(
                 new BigDecimal(totalPassengers),
@@ -247,7 +251,7 @@ public class BookingServiceImpl implements BookingService {
 
     @Override
     public BookingResponseDTO getBookingById(Integer bookingId) {
-        BookingHeader booking = bookingRepo.findById(bookingId)
+        BookingHeader booking = bookingRepo.findByIdWithDetails(bookingId)
                 .orElseThrow(() -> new RuntimeException("Booking not found with ID: " + bookingId));
         return toDTO(booking);
     }

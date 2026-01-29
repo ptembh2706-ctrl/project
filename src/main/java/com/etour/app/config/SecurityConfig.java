@@ -33,7 +33,7 @@ public class SecurityConfig {
 
         @Bean
         public SecurityFilterChain securityFilterChain(HttpSecurity http, JwtAuthenticationFilter jwtFilter,
-                        com.etour.app.security.OAuth2LoginSuccessHandler oauth2LoginSuccessHandler)
+                        @org.springframework.beans.factory.annotation.Autowired(required = false) com.etour.app.security.OAuth2LoginSuccessHandler oauth2LoginSuccessHandler)
                         throws Exception {
                 http
                                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
@@ -61,8 +61,11 @@ public class SecurityConfig {
 
                                                 // Protected Endpoints (Bookings, Customers, etc.)
                                                 .anyRequest().authenticated())
-                                .oauth2Login(oauth2 -> oauth2
-                                                .successHandler(oauth2LoginSuccessHandler))
+                                .oauth2Login(oauth2 -> {
+                                        if (oauth2LoginSuccessHandler != null) {
+                                                oauth2.successHandler(oauth2LoginSuccessHandler);
+                                        }
+                                })
                                 .exceptionHandling(e -> e
                                                 .authenticationEntryPoint((request, response, authException) -> {
                                                         // For API requests, return 401 instead of redirecting

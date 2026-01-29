@@ -1,11 +1,12 @@
 package com.etour.app.controller;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.web.bind.annotation.*;
 import java.util.*;
+
 @RestController
 @RequestMapping("/api/i18n")
-@CrossOrigin(origins = "*")
 public class I18nController {
     @Autowired
     private MessageSource messageSource;
@@ -15,6 +16,7 @@ public class I18nController {
             "login.button", "login.signing_in", "login.no_account",
             "login.register", "login.error", "app.name"
     };
+
     // GET /api/i18n/{locale} - Get all translations for a locale
     @GetMapping("/{locale}")
     public Map<String, String> getTranslations(@PathVariable String locale) {
@@ -30,6 +32,7 @@ public class I18nController {
         }
         return translations;
     }
+
     // GET /api/i18n/languages - Get list of supported languages
     @GetMapping("/languages")
     public List<Map<String, String>> getSupportedLanguages() {
