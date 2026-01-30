@@ -22,6 +22,10 @@ export const cancelBooking = (bookingId) => {
   return apiClient.delete(`/bookings/${bookingId}`);
 };
 
+export const updateBookingStatus = (bookingId, status) => {
+  return apiClient.put(`/bookings/${bookingId}/status?status=${status}`);
+};
+
 // ========== PAYMENT ENDPOINTS ==========
 
 export const createRazorpayOrder = (bookingId, amount) => {

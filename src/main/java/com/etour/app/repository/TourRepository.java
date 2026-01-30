@@ -18,7 +18,7 @@ public interface TourRepository extends JpaRepository<TourMaster, Integer> {
 	// Search tours by Date Range
 	@Query("""
 			    SELECT new com.etour.app.dto.SearchResultDTO(
-			        t.id, t.catmaster.id, t.catmaster.name, d.departureDate, d.endDate, d.numberOfDays, c.baseCost
+			        t.id, t.catmaster.id, t.catmaster.name, d.departureDate, d.endDate, d.numberOfDays, c.baseCost, t.catmaster.imagePath
 			    )
 			    FROM TourMaster t
 			    JOIN t.departureDate d
@@ -34,7 +34,7 @@ public interface TourRepository extends JpaRepository<TourMaster, Integer> {
 	// Search tours by Duration
 	@Query("""
 			    SELECT new com.etour.app.dto.SearchResultDTO(
-			        t.id, t.catmaster.id, t.catmaster.name, d.departureDate, d.endDate, d.numberOfDays, c.baseCost
+			        t.id, t.catmaster.id, t.catmaster.name, d.departureDate, d.endDate, d.numberOfDays, c.baseCost, t.catmaster.imagePath
 			    )
 			    FROM TourMaster t
 			    JOIN t.departureDate d
@@ -50,7 +50,7 @@ public interface TourRepository extends JpaRepository<TourMaster, Integer> {
 	// Search tours by Cost Range
 	@Query("""
 			    SELECT new com.etour.app.dto.SearchResultDTO(
-			        t.id, t.catmaster.id, t.catmaster.name, d.departureDate, d.endDate, d.numberOfDays, c.baseCost
+			        t.id, t.catmaster.id, t.catmaster.name, d.departureDate, d.endDate, d.numberOfDays, c.baseCost, t.catmaster.imagePath
 			    )
 			    FROM TourMaster t
 			    JOIN t.departureDate d

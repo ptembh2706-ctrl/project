@@ -152,10 +152,10 @@ const Home = () => {
                             Plan Your Trip with <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">E-Tour Classics</span>
                         </h2>
                         <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.
+                            Travel isn’t just about places — it’s about stories you’ll remember long after the journey ends. At E-Tour Classics, we design experiences that take you beyond sightseeing, combining iconic destinations with authentic moments, comfort, and care.
                         </p>
                         <p className="text-gray-600 text-lg leading-relaxed mb-10">
-                            A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.
+                            From peaceful pilgrimages and wildlife safaris to international highlights and scenic escapes, every tour is thoughtfully curated to give you a smooth, enriching, and memorable travel experience — just the way it should be.
                         </p>
 
 

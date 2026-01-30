@@ -43,7 +43,9 @@ public interface BookingHeaderRepository
 
 			    ps.passenger_name,
 			    ps.passenger_type,
-			    ps.passenger_amount
+			    ps.passenger_amount,
+			    ps.gender,
+			    ps.date_of_birth
 
 			FROM booking_header bh
 			JOIN payment pmt

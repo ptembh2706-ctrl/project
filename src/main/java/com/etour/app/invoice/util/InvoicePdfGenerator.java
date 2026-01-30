@@ -24,7 +24,8 @@ import com.lowagie.text.pdf.draw.LineSeparator;
 
 public class InvoicePdfGenerator {
 
-    private InvoicePdfGenerator() {}
+    private InvoicePdfGenerator() {
+    }
 
     public static byte[] generateInvoicePdf(InvoiceResponseDTO invoice) {
 
@@ -37,10 +38,10 @@ public class InvoicePdfGenerator {
 
             /* ---------------- FONTS ---------------- */
             Font companyFont = new Font(Font.HELVETICA, 20, Font.BOLD);
-            Font titleFont   = new Font(Font.HELVETICA, 14, Font.BOLD);
-            Font headerFont  = new Font(Font.HELVETICA, 11, Font.BOLD);
-            Font normalFont  = new Font(Font.HELVETICA, 10);
-            Font boldFont    = new Font(Font.HELVETICA, 10, Font.BOLD);
+            Font titleFont = new Font(Font.HELVETICA, 14, Font.BOLD);
+            Font headerFont = new Font(Font.HELVETICA, 11, Font.BOLD);
+            Font normalFont = new Font(Font.HELVETICA, 10);
+            Font boldFont = new Font(Font.HELVETICA, 10, Font.BOLD);
 
             /* ---------------- COMPANY HEADER ---------------- */
             Paragraph company = new Paragraph("E-Tour India", companyFont);
@@ -48,9 +49,8 @@ public class InvoicePdfGenerator {
 
             Paragraph subtitle = new Paragraph(
                     "Travel & Experiences Pvt. Ltd.\n" +
-                    "support@etourindia.com | +91-XXXXXXXXXX",
-                    normalFont
-            );
+                            "support@etourindia.com | +91-XXXXXXXXXX",
+                    normalFont);
             subtitle.setSpacingAfter(10);
 
             Paragraph invoiceTitle = new Paragraph("INVOICE", titleFont);
@@ -115,15 +115,21 @@ public class InvoicePdfGenerator {
 
             /* ---------------- PASSENGERS ---------------- */
             document.add(section("Passenger Details", headerFont));
-            PdfPTable passengers = new PdfPTable(3);
+            PdfPTable passengers = new PdfPTable(5);
             passengers.setWidthPercentage(100);
+            passengers.setWidths(new float[] { 30, 15, 15, 20, 20 });
             passengers.addCell(cell("Name", boldFont));
+            passengers.addCell(cell("Gender", boldFont));
             passengers.addCell(cell("Type", boldFont));
+            passengers.addCell(cell("DOB", boldFont));
             passengers.addCell(cell("Amount", boldFont));
 
             for (InvoicePassengerDTO p : invoice.getPassengers()) {
                 passengers.addCell(cell(p.getPassengerName(), normalFont));
-                passengers.addCell(cell(p.getPassengerType(), normalFont));
+                passengers.addCell(cell(p.getGender() != null ? p.getGender() : "-", normalFont));
+                passengers.addCell(
+                        cell(p.getPassengerType() != null ? p.getPassengerType().replace("_", " ") : "-", normalFont));
+                passengers.addCell(cell(p.getDateOfBirth() != null ? formatDate(p.getDateOfBirth()) : "-", normalFont));
                 passengers.addCell(cell(formatAmount(p.getPassengerAmount()), normalFont));
             }
             document.add(passengers);
@@ -153,8 +159,7 @@ public class InvoicePdfGenerator {
 
             PdfPCell totalLabel = cell("Total Amount", boldFont);
             PdfPCell totalValue = cell(
-                    formatAmount(invoice.getAmount().getTotalAmount()), boldFont
-            );
+                    formatAmount(invoice.getAmount().getTotalAmount()), boldFont);
             totalValue.setBackgroundColor(new Color(230, 230, 230));
 
             amount.addCell(totalLabel);
@@ -165,9 +170,8 @@ public class InvoicePdfGenerator {
             /* ---------------- FOOTER ---------------- */
             Paragraph footer = new Paragraph(
                     "This is a system-generated invoice and does not require a signature.\n" +
-                    "Thank you for choosing E-Tour India.",
-                    normalFont
-            );
+                            "Thank you for choosing E-Tour India.",
+                    normalFont);
             footer.setAlignment(Element.ALIGN_CENTER);
             footer.setSpacingBefore(20);
             document.add(footer);

@@ -46,16 +46,25 @@ const Navbar = () => {
         {/* Left Side: Logo & Nav Links */}
         <div className="flex items-center gap-12">
           {/* Logo */}
+          {/* Logo */}
           <div
             onClick={() => navigate("/")}
-            className="flex items-center gap-3 cursor-pointer group"
+            className="flex items-center gap-2 cursor-pointer group"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-blue-500/20 group-hover:scale-105 transition-all duration-300">
-              E
+            {/* Creative Icon Logo */}
+            <div className="relative w-10 h-10">
+              <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500 to-emerald-600 rounded-xl transform rotate-6 group-hover:rotate-12 transition-transform duration-300 shadow-lg shadow-emerald-500/30"></div>
+              <div className="absolute inset-0 bg-teal-600 rounded-xl transform -rotate-3 group-hover:-rotate-6 transition-transform duration-300 opacity-90 flex items-center justify-center">
+                <span className="text-white font-display font-bold text-2xl italic pr-1">e</span>
+              </div>
             </div>
-            <h2 className="text-2xl font-bold font-display text-white tracking-tight group-hover:text-blue-200 transition-colors">
-              E-Tour
-            </h2>
+
+            <div className="flex flex-col">
+              <h2 className="text-2xl font-bold font-display text-white tracking-tight leading-none group-hover:text-emerald-200 transition-colors">
+                E-Tour
+              </h2>
+              <span className="text-[10px] text-gray-400 font-medium tracking-[0.2em] uppercase leading-none pl-0.5 group-hover:tracking-[0.3em] transition-all">Classics</span>
+            </div>
           </div>
 
           {/* Nav Links */}

@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Home from "../pages/Home";
+import DestinationsPage from "../pages/DestinationsPage";
 import CategoryPage from "../pages/CategoryPage";
 import TourPage from "../pages/tour/TourPage";
 import Overview from "../pages/tour/Overview";
@@ -44,6 +45,7 @@ const MainContent = () => {
       {!isAdmin && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/destinations" element={<DestinationsPage />} />
         <Route path="/categories/:categoryId" element={<CategoryPage />} />
 
         {/* <Route path="/tours/:catmasterId" element={<TourDetails />} /> */}

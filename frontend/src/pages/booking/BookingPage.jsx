@@ -29,12 +29,15 @@ const BookingPage = () => {
     const handleContinue = () => {
         if (!selectedDateId) return;
 
+        const selectedDep = departureDates.find(d => d.id === selectedDateId);
+
         navigate("/booking/passengers", {
             state: {
                 catmasterId,
                 departureDateId: selectedDateId,
-                tourName: tour?.tourName || tour?.categoryName, // specific tour name or category fallback
-                tourId: tour?.tourId || tour?.id
+                tourName: tour?.tourName || tour?.categoryName,
+                tourId: tour?.tourId || tour?.id || catmasterId, // Fallback to catmasterId if no tourId
+                departureDate: selectedDep?.departureDate // Pass the actual departure date string
             }
         });
     };

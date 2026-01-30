@@ -11,9 +11,10 @@ public class SearchResultDTO {
     private LocalDate endDate;
     private Integer duration;
     private BigDecimal tourCost;
+    private String imagePath;
 
     public SearchResultDTO(Integer tourId, Integer catmasterId, String tourName, LocalDate startDate, LocalDate endDate,
-            Integer duration, BigDecimal tourCost) {
+            Integer duration, BigDecimal tourCost, String imagePath) { // Updated Constructor
         this.tourId = tourId;
         this.catmasterId = catmasterId;
         this.tourName = tourName;
@@ -21,6 +22,7 @@ public class SearchResultDTO {
         this.endDate = endDate;
         this.duration = duration;
         this.tourCost = tourCost;
+        this.imagePath = imagePath;
     }
 
     public SearchResultDTO() {
@@ -81,5 +83,13 @@ public class SearchResultDTO {
 
     public void setTourCost(BigDecimal tourCost) {
         this.tourCost = tourCost;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 }

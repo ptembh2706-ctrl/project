@@ -30,6 +30,12 @@ public class BookingResponseDTO {
     private LocalDate endDate;
     private Integer numberOfDays;
 
+    // Passenger breakdown
+    private Integer adultCount;
+    private Integer childCount;
+    private Integer infantCount;
+    private String roomSummary;
+
     // Getters and Setters
     public Integer getId() {
         return id;
@@ -173,5 +179,37 @@ public class BookingResponseDTO {
 
     public void setNumberOfDays(Integer numberOfDays) {
         this.numberOfDays = numberOfDays;
+    }
+
+    public Integer getAdultCount() {
+        return adultCount;
+    }
+
+    public void setAdultCount(Integer adultCount) {
+        this.adultCount = adultCount;
+    }
+
+    public Integer getChildCount() {
+        return childCount;
+    }
+
+    public void setChildCount(Integer childCount) {
+        this.childCount = childCount;
+    }
+
+    public Integer getInfantCount() {
+        return infantCount;
+    }
+
+    public void setInfantCount(Integer infantCount) {
+        this.infantCount = infantCount;
+    }
+
+    public String getRoomSummary() {
+        return roomSummary;
+    }
+
+    public void setRoomSummary(String roomSummary) {
+        this.roomSummary = roomSummary;
     }
 }

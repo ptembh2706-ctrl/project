@@ -18,7 +18,7 @@ public class PassengerServiceImpl implements PassengerService {
     public PassengerMaster addPassenger(PassengerMaster passenger) {
         return passengerRepository.save(passenger);
     }
-    
+
     @Override
     public PassengerMaster getPassengerById(int passengerId) {
         return passengerRepository.findById(passengerId).orElse(null);
@@ -27,40 +27,40 @@ public class PassengerServiceImpl implements PassengerService {
     @Override
     public List<PassengerResponseDTO> getAllPassengers() {
         return passengerRepository.findAll()
-            .stream()
-            .map(passenger -> {
-                PassengerResponseDTO dto = new PassengerResponseDTO();
-                dto.setPassengerId(passenger.getId());
-                dto.setPassengerName(passenger.getPassengerName());
-                dto.setPassengerType(passenger.getPassengerType());
-                dto.setPassengerAmount(passenger.getPassengerAmount());
-                return dto;
-            })
-            .toList();
+                .stream()
+                .map(passenger -> {
+                    PassengerResponseDTO dto = new PassengerResponseDTO();
+                    dto.setPassengerId(passenger.getId());
+                    dto.setPassengerName(passenger.getPassengerName());
+                    dto.setPassengerType(passenger.getPassengerType());
+                    dto.setPassengerAmount(passenger.getPassengerAmount());
+                    dto.setDateOfBirth(passenger.getDateOfBirth());
+                    dto.setGender(passenger.getGender());
+                    return dto;
+                })
+                .toList();
     }
 
     @Override
     public List<PassengerResponseDTO> getPassengersByBookingId(int bookingId) {
-    	List<PassengerMaster> passengers = passengerRepository.findPassengersByBookingId(bookingId);
+        List<PassengerMaster> passengers = passengerRepository.findPassengersByBookingId(bookingId);
 
-    	return passengers.stream().map(passenger -> {
-    		PassengerResponseDTO dto = new PassengerResponseDTO();
+        return passengers.stream().map(passenger -> {
+            PassengerResponseDTO dto = new PassengerResponseDTO();
             dto.setPassengerId(passenger.getId());
-    		dto.setPassengerName(passenger.getPassengerName());
-    		dto.setPassengerType(passenger.getPassengerType());
-    		dto.setPassengerAmount(passenger.getPassengerAmount());
-    		return dto;
-    	}).toList();
+            dto.setPassengerName(passenger.getPassengerName());
+            dto.setPassengerType(passenger.getPassengerType());
+            dto.setPassengerAmount(passenger.getPassengerAmount());
+            dto.setDateOfBirth(passenger.getDateOfBirth());
+            dto.setGender(passenger.getGender());
+            return dto;
+        }).toList();
     }
-
-   
 
     @Override
     public void deletePassenger(int passengerId) {
         PassengerMaster p = passengerRepository.findById(passengerId).orElseThrow();
         passengerRepository.delete(p);
     }
-
-    
 
 }

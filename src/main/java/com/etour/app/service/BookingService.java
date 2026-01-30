@@ -8,7 +8,7 @@ import com.etour.app.entity.BookingHeader;
 
 public interface BookingService {
 
-    BookingHeader createBooking(BookingRequestDTO dto);  // Keep as BookingHeader for create
+    BookingHeader createBooking(BookingRequestDTO dto); // Keep as BookingHeader for create
 
     List<BookingResponseDTO> getBookingsByCustomer(Integer customerId);
 
@@ -17,4 +17,6 @@ public interface BookingService {
     List<BookingResponseDTO> getAllBookings();
 
     void cancelBooking(Integer bookingId);
+
+    void updateBookingStatus(Integer bookingId, String status);
 }

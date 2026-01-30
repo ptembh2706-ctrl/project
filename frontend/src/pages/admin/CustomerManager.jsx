@@ -26,10 +26,9 @@ const CustomerManager = () => {
     const [editingCustomer, setEditingCustomer] = useState(null);
     const [formData, setFormData] = useState({
         customerId: '',
-        firstName: '',
-        lastName: '',
+        name: '',
         email: '',
-        phoneNumber: '',
+        mobileNumber: '',
         password: '', // Should be handled carefully
         address: ''
     });
@@ -80,18 +79,17 @@ const CustomerManager = () => {
                         {customers.map(cust => (
                             <tr key={cust.customerId}>
                                 <td>{cust.customerId}</td>
-                                <td>{cust.firstName} {cust.lastName}</td>
+                                <td>{cust.name}</td>
                                 <td>{cust.email}</td>
-                                <td>{cust.phoneNumber}</td>
+                                <td>{cust.mobileNumber}</td>
                                 <td>
                                     <button className="btn-edit" onClick={() => {
                                         setEditingCustomer(cust);
                                         setFormData({
                                             customerId: cust.customerId,
-                                            firstName: cust.firstName,
-                                            lastName: cust.lastName,
+                                            name: cust.name,
                                             email: cust.email,
-                                            phoneNumber: cust.phoneNumber,
+                                            mobileNumber: cust.mobileNumber,
                                             address: cust.address,
                                             password: cust.password // Keep existing password or handle reset separately
                                         });
@@ -111,20 +109,16 @@ const CustomerManager = () => {
                         <h3>Edit Customer</h3>
                         <form onSubmit={handleSubmit}>
                             <div className="form-group">
-                                <label>First Name</label>
-                                <input type="text" value={formData.firstName} onChange={e => setFormData({ ...formData, firstName: e.target.value })} required />
-                            </div>
-                            <div className="form-group">
-                                <label>Last Name</label>
-                                <input type="text" value={formData.lastName} onChange={e => setFormData({ ...formData, lastName: e.target.value })} required />
+                                <label>Name</label>
+                                <input type="text" value={formData.name} onChange={e => setFormData({ ...formData, name: e.target.value })} required />
                             </div>
                             <div className="form-group">
                                 <label>Email</label>
                                 <input type="email" value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} required />
                             </div>
                             <div className="form-group">
-                                <label>Phone</label>
-                                <input type="text" value={formData.phoneNumber} onChange={e => setFormData({ ...formData, phoneNumber: e.target.value })} required />
+                                <label>Mobile Number</label>
+                                <input type="text" value={formData.mobileNumber} onChange={e => setFormData({ ...formData, mobileNumber: e.target.value })} required />
                             </div>
                             <div className="form-group">
                                 <label>Address</label>

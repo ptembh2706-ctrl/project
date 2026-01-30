@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { BACKEND_URL } from '../config';
 
 const TourResultCard = ({ tour }) => {
-    // SearchResultDTO fields: tourId, catmasterId, tourName, startDate, endDate, duration, tourCost
+    // SearchResultDTO fields: tourId, catmasterId, tourName, startDate, endDate, duration, tourCost, imagePath
 
     // Formatting currency
     const formatter = new Intl.NumberFormat('en-IN', {
@@ -13,6 +14,19 @@ const TourResultCard = ({ tour }) => {
 
     return (
         <div className="group bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 h-full flex flex-col">
+            {/* Added Image Section */}
+            <div className="h-48 overflow-hidden relative">
+                <img
+                    src={`${BACKEND_URL}${tour.imagePath}`}
+                    alt={tour.tourName}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = "https://via.placeholder.com/400x300?text=Tour+Image";
+                    }}
+                />
+            </div>
+
             <div className="p-6 flex-grow flex flex-col justify-between">
                 <div>
                     <div className="flex justify-between items-start mb-4">

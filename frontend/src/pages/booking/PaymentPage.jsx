@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { RAZORPAY_KEY_ID } from "../../config";
-import { createRazorpayOrder, verifyPayment, getBookingById } from "../../api/bookingApi";
+import { createRazorpayOrder, verifyPayment, getBookingById, updateBookingStatus } from "../../api/bookingApi";
 import { getPassengersByBooking } from "../../api/passengerApi";
 import Loader from "../../components/Loader";
 
@@ -88,6 +88,7 @@ const PaymentPage = () => {
         modal: {
           ondismiss: () => {
             setProcessingPayment(false);
+            updateBookingStatus(bookingId, 'FAILED');
             setError("Payment was cancelled");
           },
         },
@@ -102,6 +103,7 @@ const PaymentPage = () => {
         setProcessingPayment(false);
       }
     } catch (err) {
+      updateBookingStatus(bookingId, 'FAILED');
       setError(err.response?.data?.message || "Failed to initiate payment");
       setProcessingPayment(false);
       console.error("Payment Error:", err);
@@ -122,6 +124,7 @@ const PaymentPage = () => {
       setProcessingPayment(false);
       navigate(`/payment/success/${bookingId}`);
     } catch (err) {
+      updateBookingStatus(bookingId, 'FAILED');
       setProcessingPayment(false);
       setError(err.response?.data?.message || "Payment verification failed");
       console.error(err);
@@ -218,7 +221,7 @@ const PaymentPage = () => {
                 </div>
                 <div className="border-t border-dashed border-gray-200 my-4"></div>
                 <div className="flex justify-between">
-                  <span>Tour Cost</span>
+                  <span>{passengers.length === 1 ? 'Tour Cost (Single Occupancy)' : 'Tour Cost'}</span>
                   <span className="font-medium">₹ {booking.tourAmount?.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between">
@@ -231,6 +234,14 @@ const PaymentPage = () => {
                 <span className="font-bold text-gray-700">Total Payable</span>
                 <span className="font-bold text-2xl text-emerald-600">₹{booking.totalAmount?.toFixed(2)}</span>
               </div>
+
+              {/* Pricing Explanation */}
+              {passengers.length === 1 && (
+                <div className="mb-6 bg-blue-50 border border-blue-100 rounded-lg p-3 text-xs text-blue-800">
+                  <p className="font-bold mb-1">Why is the price higher?</p>
+                  <p>You have booked for 1 person (Single Occupancy). The standard price is based on Twin Sharing. A supplement is added for the exclusive use of a double room.</p>
+                </div>
+              )}
 
               <button
                 onClick={handlePaymentClick}
@@ -251,7 +262,7 @@ const PaymentPage = () => {
 
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 

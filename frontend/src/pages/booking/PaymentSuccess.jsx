@@ -169,11 +169,24 @@ const PaymentSuccess = () => {
                   <h2 className="text-xl font-bold text-gray-800 mb-4 pb-2 border-b">Passenger List</h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {passengers.map((p, i) => (
-                      <div key={i} className="flex items-center gap-3 bg-gray-50 rounded-xl p-3 border border-gray-100">
+                      <div key={i} className="flex items-center gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
                         <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 font-bold text-sm">
                           {i + 1}
                         </div>
-                        <span className="font-medium text-gray-700">{p.passengerName}</span>
+                        <div className="flex-1">
+                          <div className="flex items-center gap-2">
+                            <span className="font-medium text-gray-700">{p.passengerName}</span>
+                            {p.gender && (
+                              <span className="text-xs text-gray-400">({p.gender})</span>
+                            )}
+                          </div>
+                          <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${p.passengerType === 'ADULT' ? 'bg-emerald-100 text-emerald-700' :
+                              p.passengerType === 'INFANT' ? 'bg-purple-100 text-purple-700' :
+                                'bg-blue-100 text-blue-700'
+                            }`}>
+                            {p.passengerType?.replace(/_/g, ' ') || 'ADULT'}
+                          </span>
+                        </div>
                       </div>
                     ))}
                   </div>

@@ -28,9 +28,8 @@ public class InvoiceServiceImpl implements InvoiceService {
         List<Object[]> rows = bookingHeaderRepository.fetchInvoiceData(bookingId);
 
         if (rows == null || rows.isEmpty()) {
-        	throw new InvoiceNotAllowedException(
-        	        "Invoice allowed only for CONFIRMED booking with SUCCESS payment"
-        	    );
+            throw new InvoiceNotAllowedException(
+                    "Invoice allowed only for CONFIRMED booking with SUCCESS payment");
         }
 
         Object[] r = rows.get(0);
@@ -92,6 +91,10 @@ public class InvoiceServiceImpl implements InvoiceService {
                 p.setPassengerName((String) row[20]);
                 p.setPassengerType((String) row[21]);
                 p.setPassengerAmount((BigDecimal) row[22]);
+                p.setGender((String) row[23]);
+                if (row[24] != null) {
+                    p.setDateOfBirth((LocalDate) row[24]);
+                }
                 passengers.add(p);
             }
         }

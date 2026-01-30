@@ -79,6 +79,9 @@ public class BookingServiceTest {
         cost.setCatmaster(category);
         cost.setBaseCost(new BigDecimal("50000"));
         cost.setSinglePersonCost(new BigDecimal("30000"));
+        cost.setExtraPersonCost(new BigDecimal("10000"));
+        cost.setChildWithBedCost(new BigDecimal("8000"));
+        cost.setChildWithoutBedCost(new BigDecimal("5000"));
     }
 
     // =========================================================
@@ -144,7 +147,8 @@ public class BookingServiceTest {
         booking.setTour(tour);
         booking.setDepartureDate(departure);
 
-        when(bookingRepo.findById(999))
+        // MODIFIED: mocking findByIdWithDetails instead of findById
+        when(bookingRepo.findByIdWithDetails(999))
                 .thenReturn(Optional.of(booking));
 
         BookingResponseDTO response = bookingService.getBookingById(999);
@@ -155,6 +159,6 @@ public class BookingServiceTest {
         assertEquals("John Doe", response.getCustomerName());
         assertEquals("Bali Trip", response.getTourDescription());
 
-        verify(bookingRepo).findById(999);
+        verify(bookingRepo).findByIdWithDetails(999);
     }
 }

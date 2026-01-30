@@ -48,7 +48,7 @@ const HeroSection = () => {
                     <div className="pt-8 flex flex-col sm:flex-row gap-4 justify-center">
                         <button
                             onClick={() => document.getElementById('tours-section').scrollIntoView({ behavior: 'smooth' })}
-                            className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold text-lg shadow-lg shadow-blue-900/20 transition-all transform hover:-translate-y-1"
+                            className="px-8 py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full font-bold text-lg shadow-lg shadow-emerald-900/20 transition-all transform hover:-translate-y-1"
                         >
                             Explore Destinations
                         </button>

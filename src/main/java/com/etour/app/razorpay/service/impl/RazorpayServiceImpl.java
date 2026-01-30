@@ -19,8 +19,7 @@ public class RazorpayServiceImpl implements RazorpayService {
 
     public RazorpayServiceImpl(
             RazorpayClient razorpayClient,
-            BookingHeaderRepository bookingRepository
-    ) {
+            BookingHeaderRepository bookingRepository) {
         this.razorpayClient = razorpayClient;
         this.bookingRepository = bookingRepository;
     }
@@ -30,14 +29,14 @@ public class RazorpayServiceImpl implements RazorpayService {
 
         // 1️⃣ Validate booking exists
         BookingHeader booking = bookingRepository.findById(
-                request.getBookingId().intValue()
-        ).orElseThrow(() ->
-                new RuntimeException("Booking not found with ID: " + request.getBookingId())
-        );
+                request.getBookingId().intValue())
+                .orElseThrow(() -> new RuntimeException("Booking not found with ID: " + request.getBookingId()));
 
         // ✨ Validate booking status
-        if (!"PENDING".equalsIgnoreCase(booking.getBookingStatus())) {
-            throw new RuntimeException("Only PENDING bookings can be paid");
+        // Allow PENDING and FAILED (for retries)
+        String status = booking.getBookingStatus();
+        if (!"PENDING".equalsIgnoreCase(status) && !"FAILED".equalsIgnoreCase(status)) {
+            throw new RuntimeException("Only PENDING or FAILED bookings can be paid. Current status: " + status);
         }
 
         // ✨ Validate customer exists (CRITICAL FIX)
@@ -58,7 +57,8 @@ public class RazorpayServiceImpl implements RazorpayService {
 
             // ✨ Validate minimum amount - 100 paise = ₹1 (CRITICAL FIX)
             if (amountInPaise < 100) {
-                throw new RuntimeException("Booking amount must be at least ₹1.00. Current amount: " + booking.getTotalAmount());
+                throw new RuntimeException(
+                        "Booking amount must be at least ₹1.00. Current amount: " + booking.getTotalAmount());
             }
 
             // ✨ Validate amount is positive (CRITICAL FIX)
@@ -87,7 +87,8 @@ public class RazorpayServiceImpl implements RazorpayService {
 
             response.setBookingId(booking.getId().longValue());
 
-            System.out.println("DEBUG: Razorpay order created successfully. Order ID: " + response.getOrderId() + ", Amount: " + response.getAmount());
+            System.out.println("DEBUG: Razorpay order created successfully. Order ID: " + response.getOrderId()
+                    + ", Amount: " + response.getAmount());
 
             return response;
 
@@ -103,4 +104,3 @@ public class RazorpayServiceImpl implements RazorpayService {
         }
     }
 }
-

@@ -22,7 +22,7 @@ const CategoryManager = () => {
 
     const fetchCategories = async () => {
         try {
-            const resp = await axios.get('/admin/categories');
+            const resp = await axios.get('/categories/all');
             // This gets main categories, we might need a separate endpoint for ALL categories for admin
             // For now, let's assume we can fetch them or we'll add a proper admin fetch
             setCategories(resp.data);

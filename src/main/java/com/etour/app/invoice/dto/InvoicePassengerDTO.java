@@ -1,14 +1,18 @@
 package com.etour.app.invoice.dto;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 public class InvoicePassengerDTO {
 
     private String passengerName;
     private String passengerType;
     private BigDecimal passengerAmount;
+    private String gender;
+    private LocalDate dateOfBirth;
 
-    public InvoicePassengerDTO() {}
+    public InvoicePassengerDTO() {
+    }
 
     public String getPassengerName() {
         return passengerName;
@@ -32,5 +36,21 @@ public class InvoicePassengerDTO {
 
     public void setPassengerAmount(BigDecimal passengerAmount) {
         this.passengerAmount = passengerAmount;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 }

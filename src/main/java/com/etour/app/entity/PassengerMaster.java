@@ -29,6 +29,9 @@ public class PassengerMaster {
     @Column(name = "passenger_amount", nullable = false, precision = 10, scale = 2)
     private BigDecimal passengerAmount;
 
+    @Column(name = "gender", length = 10)
+    private String gender;
+
     public Integer getId() {
         return id;
     }
@@ -75,6 +78,14 @@ public class PassengerMaster {
 
     public void setPassengerAmount(BigDecimal passengerAmount) {
         this.passengerAmount = passengerAmount;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
 }

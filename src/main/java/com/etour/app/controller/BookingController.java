@@ -62,4 +62,13 @@ public class BookingController {
 		bookingService.cancelBooking(bookingId);
 		return "Booking Cancelled Successfully";
 	}
+
+	// ==========================
+	// UPDATE BOOKING STATUS
+	// ==========================
+	@PutMapping("/{bookingId}/status")
+	public String updateBookingStatus(@PathVariable Integer bookingId, @RequestParam String status) {
+		bookingService.updateBookingStatus(bookingId, status);
+		return "Booking Status Updated to " + status;
+	}
 }
