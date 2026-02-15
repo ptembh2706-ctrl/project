@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+    /* Ixigo Orange (Replaces Emerald - Primary Action) */
+    --color-emerald-50: #FFF3F0;
+    --color-emerald-100: #FFE6E1;
+    --color-emerald-200: #FFCCC4;
+    --color-emerald-300: #FFA395;
+    --color-emerald-400: #FF7560;
+    --color-emerald-500: #F66D38;
+    --color-emerald-600: #EC5B24;
+    --color-emerald-700: #C93F16;
+    --color-emerald-800: #A03112;
+    --color-emerald-900: #842C12;
+    --color-emerald-950: #481205;
+
+    /* Ixigo Blue (Replaces Teal - Secondary/Brand) */
+    --color-teal-50: #F0F9FF;
+    --color-teal-100: #E0F2FE;
+    --color-teal-200: #BAE6FD;
+    --color-teal-300: #71C6F9;
+    --color-teal-400: #34A0E6;
+    --color-teal-500: #0D82D1;
+    --color-teal-600: #213D77;
+    --color-teal-700: #1B315E;
+    --color-teal-800: #17284A;
+    --color-teal-900: #16243D;
+    --color-teal-950: #0E1624;
+}

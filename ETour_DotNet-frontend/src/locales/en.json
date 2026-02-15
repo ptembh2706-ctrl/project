@@ -1,0 +1,12 @@
+{
+    "app.name": "E-Tour Classics",
+    "login.title": "Welcome Back",
+    "login.subtitle": "Welcome back! Please enter your details.",
+    "login.email": "Email",
+    "login.password": "Password",
+    "login.button": "Sign in",
+    "login.signing_in": "Signing in...",
+    "login.no_account": "Don't have an account?",
+    "login.register": "Sign up",
+    "login.error": "Invalid email or password"
+}

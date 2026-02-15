@@ -1,0 +1,103 @@
+  Determining projects to restore...
+C:\Users\Tanmay Karangutkar\Desktop\finaldotnet\etour-backend\Etour_Backend_dotnet.csproj : warning NU1701: Package 'Razorpay 3.0.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project. [C:\Users\Tanmay Karangutkar\Desktop\finaldotnet\etour-backend\Etour_Backend_dotnet.Tests\Etour_Backend_dotnet.Tests.csproj]
+C:\Users\Tanmay Karangutkar\Desktop\finaldotnet\etour-backend\Etour_Backend_dotnet.Tests\Etour_Backend_dotnet.Tests.csproj : warning NU1701: Package 'Razorpay 3.0.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.
+  All projects are up-to-date for restore.
+C:\Users\Tanmay Karangutkar\Desktop\finaldotnet\etour-backend\Etour_Backend_dotnet.Tests\Etour_Backend_dotnet.Tests.csproj : warning NU1701: Package 'Razorpay 3.0.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.
+C:\Users\Tanmay Karangutkar\Desktop\finaldotnet\etour-backend\Etour_Backend_dotnet.csproj : warning NU1701: Package 'Razorpay 3.0.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.
+  Etour_Backend_dotnet -> C:\Users\Tanmay Karangutkar\Desktop\finaldotnet\etour-backend\bin\Debug\net8.0\Etour_Backend_dotnet.dll
+  Etour_Backend_dotnet.Tests -> C:\Users\Tanmay Karangutkar\Desktop\finaldotnet\etour-backend\Etour_Backend_dotnet.Tests\bin\Debug\net8.0\Etour_Backend_dotnet.Tests.dll
+Test run for C:\Users\Tanmay Karangutkar\Desktop\finaldotnet\etour-backend\Etour_Backend_dotnet.Tests\bin\Debug\net8.0\Etour_Backend_dotnet.Tests.dll (.NETCoreApp,Version=v8.0)
+VSTest version 17.14.1 (x64)
+
+Starting test execution, please wait...
+A total of 1 test files matched the specified pattern.
+C:\Users\Tanmay Karangutkar\Desktop\finaldotnet\etour-backend\Etour_Backend_dotnet.Tests\bin\Debug\net8.0\Etour_Backend_dotnet.Tests.dll
+[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.8.2+699d445a1a (64-bit .NET 8.0.23)
+[xUnit.net 00:00:00.14]   Discovering: Etour_Backend_dotnet.Tests
+[xUnit.net 00:00:00.21]   Discovered:  Etour_Backend_dotnet.Tests
+[xUnit.net 00:00:00.21]   Starting:    Etour_Backend_dotnet.Tests
+  Passed Etour_Backend_dotnet.Tests.UnitTest1.Test1 [4 ms]
+dotnet : [xUnit.net 00:00:01.66]     
+Etour_Backend_dotnet.Tests.PassengerS
+erviceTests.DeletePassenger_ShouldRem
+ovePassenger [FAIL]
+At line:1 char:1
++ dotnet test Etour_Backend_dotnet.Te
+sts/Etour_Backend_dotnet.Tests.csp 
+...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpe 
+   cified: ([xUnit.net 00:0...assen  
+  ger [FAIL]:String) [], RemoteExc   
+ eption
+    + FullyQualifiedErrorId : Native 
+   CommandError
+ 
+[xUnit.net 00:00:01.66]       Microsoft.EntityFrameworkCore.DbUpdateException : Required properties '{'passenger_type'}' are missing for the instance of entity type 'passenger_master'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the entity key value.
+[xUnit.net 00:00:01.67]       Stack Trace:
+[xUnit.net 00:00:01.67]            at Microsoft.EntityFrameworkCore.InMemory.Storage.Internal.InMemoryTable`1.ThrowNullabilityErrorException(IUpdateEntry entry, IList`1 nullabilityErrors)
+[xUnit.net 00:00:01.67]            at Microsoft.EntityFrameworkCore.InMemory.Storage.Internal.InMemoryTable`1.Create(IUpdateEntry entry, IDiagnosticsLogger`1 updateLogger)
+[xUnit.net 00:00:01.67]            at Microsoft.EntityFrameworkCore.InMemory.Storage.Internal.InMemoryStore.ExecuteTransaction(IList`1 entries, IDiagnosticsLogger`1 updateLogger)
+[xUnit.net 00:00:01.67]            at Microsoft.EntityFrameworkCore.InMemory.Storage.Internal.InMemoryDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+[xUnit.net 00:00:01.67]            at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+[xUnit.net 00:00:01.67]            at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[xUnit.net 00:00:01.67]            at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[xUnit.net 00:00:01.67]            at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[xUnit.net 00:00:01.67]         C:\Users\Tanmay Karangutkar\Desktop\finaldotnet\etour-backend\Etour_Backend_dotnet.Tests\PassengerServiceTests.cs(105,0): at Etour_Backend_dotnet.Tests.PassengerServiceTests.DeletePassenger_ShouldRemovePassenger()
+[xUnit.net 00:00:01.67]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:01.69]     Etour_Bac
+kend_dotnet.Tests.PassengerServiceTes
+ts.GetPassengerById_ShouldReturnCorre
+ctPassenger [FAIL]
+[xUnit.net 00:00:01.69]       Microsoft.EntityFrameworkCore.DbUpdateException : Required properties '{'passenger_type'}' are missing for the instance of entity type 'passenger_master'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the entity key value.
+[xUnit.net 00:00:01.70]       Stack Trace:
+[xUnit.net 00:00:01.70]            at Microsoft.EntityFrameworkCore.InMemory.Storage.Internal.InMemoryTable`1.ThrowNullabilityErrorException(IUpdateEntry entry, IList`1 nullabilityErrors)
+[xUnit.net 00:00:01.70]            at Microsoft.EntityFrameworkCore.InMemory.Storage.Internal.InMemoryTable`1.Create(IUpdateEntry entry, IDiagnosticsLogger`1 updateLogger)
+[xUnit.net 00:00:01.70]            at Microsoft.EntityFrameworkCore.InMemory.Storage.Internal.InMemoryStore.ExecuteTransaction(IList`1 entries, IDiagnosticsLogger`1 updateLogger)
+[xUnit.net 00:00:01.70]            at Microsoft.EntityFrameworkCore.InMemory.Storage.Internal.InMemoryDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+[xUnit.net 00:00:01.70]            at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+[xUnit.net 00:00:01.70]            at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[xUnit.net 00:00:01.70]            at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[xUnit.net 00:00:01.70]            at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+[xUnit.net 00:00:01.70]         C:\Users\Tanmay Karangutkar\Desktop\finaldotnet\etour-backend\Etour_Backend_dotnet.Tests\PassengerServiceTests.cs(81,0): at Etour_Backend_dotnet.Tests.PassengerServiceTests.GetPassengerById_ShouldReturnCorrectPassenger()
+[xUnit.net 00:00:01.70]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:01.88]   Finished:    Etour_Backend_dotnet.Tests
+  Failed Etour_Backend_dotnet.Tests.PassengerServiceTests.DeletePassenger_ShouldRemovePassenger [1 s]
+  Error Message:
+   Microsoft.EntityFrameworkCore.DbUpdateException : Required properties '{'passenger_type'}' are missing for the instance of entity type 'passenger_master'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the entity key value.
+  Stack Trace:
+     at Microsoft.EntityFrameworkCore.InMemory.Storage.Internal.InMemoryTable`1.ThrowNullabilityErrorException(IUpdateEntry entry, IList`1 nullabilityErrors)
+   at Microsoft.EntityFrameworkCore.InMemory.Storage.Internal.InMemoryTable`1.Create(IUpdateEntry entry, IDiagnosticsLogger`1 updateLogger)
+   at Microsoft.EntityFrameworkCore.InMemory.Storage.Internal.InMemoryStore.ExecuteTransaction(IList`1 entries, IDiagnosticsLogger`1 updateLogger)
+   at Microsoft.EntityFrameworkCore.InMemory.Storage.Internal.InMemoryDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Etour_Backend_dotnet.Tests.PassengerServiceTests.DeletePassenger_ShouldRemovePassenger() in C:\Users\Tanmay Karangutkar\Desktop\finaldotnet\etour-backend\Etour_Backend_dotnet.Tests\PassengerServiceTests.cs:line 105
+--- End of stack trace from previous location ---
+  Failed Etour_Backend_dotnet.Tests.PassengerServiceTests.GetPassengerById_ShouldReturnCorrectPassenger [30 ms]
+  Error Message:
+   Microsoft.EntityFrameworkCore.DbUpdateException : Required properties '{'passenger_type'}' are missing for the instance of entity type 'passenger_master'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the entity key value.
+  Stack Trace:
+     at Microsoft.EntityFrameworkCore.InMemory.Storage.Internal.InMemoryTable`1.ThrowNullabilityErrorException(IUpdateEntry entry, IList`1 nullabilityErrors)
+   at Microsoft.EntityFrameworkCore.InMemory.Storage.Internal.InMemoryTable`1.Create(IUpdateEntry entry, IDiagnosticsLogger`1 updateLogger)
+   at Microsoft.EntityFrameworkCore.InMemory.Storage.Internal.InMemoryStore.ExecuteTransaction(IList`1 entries, IDiagnosticsLogger`1 updateLogger)
+   at Microsoft.EntityFrameworkCore.InMemory.Storage.Internal.InMemoryDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Etour_Backend_dotnet.Tests.PassengerServiceTests.GetPassengerById_ShouldReturnCorrectPassenger() in C:\Users\Tanmay Karangutkar\Desktop\finaldotnet\etour-backend\Etour_Backend_dotnet.Tests\PassengerServiceTests.cs:line 81
+--- End of stack trace from previous location ---
+  Passed Etour_Backend_dotnet.Tests.PassengerServiceTests.AddPassenger_ShouldAddPassengerToDatabase [141 ms]
+  Passed Etour_Backend_dotnet.Tests.PassengerServiceTests.GetAllPassengers_ShouldReturnAllPassengers [37 ms]
+
+Test Run Failed.
+Total tests: 5
+     Passed: 3
+     Failed: 2
+ Total time: 2.6518 Seconds
+
+Workload updates are available. Run `dotnet workload list` for more information.

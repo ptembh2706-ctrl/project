@@ -1,27 +1,10 @@
-####################################
-# Maven / Build
-####################################
+HELP.md
 target/
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-####################################
-# Logs
-####################################
-*.log
-*.log.*
-test_output.txt
-
-####################################
-# Spring Boot local configs
-####################################
-application-local.properties
-src/main/resources/application-local.properties
-
-####################################
-# STS / Eclipse
-####################################
+### STS ###
 .apt_generated
 .classpath
 .factorypath
@@ -31,17 +14,13 @@ src/main/resources/application-local.properties
 .springBeans
 .sts4-cache
 
-####################################
-# IntelliJ IDEA
-####################################
+### IntelliJ IDEA ###
 .idea
 *.iws
 *.iml
 *.ipr
 
-####################################
-# NetBeans
-####################################
+### NetBeans ###
 /nbproject/private/
 /nbbuild/
 /dist/
@@ -51,13 +30,43 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-####################################
-# VS Code
-####################################
+### VS Code ###
 .vscode/
 
-####################################
-# OS / Misc
-####################################
 bin/
-HELP.md
+
+
+# Local Spring Boot config
+application-local.properties
+
+# Logs
+booking.log
+
+# Test output
+test_output.txt
+
+.env
+
+# -----------------------------
+# Generated logs (ALL variants)
+# -----------------------------
+*.log
+*.log.*
+*.gz
+*.tmp
+
+# -----------------------------
+# Spring profiles (local/dev)
+# -----------------------------
+application-dev.properties
+
+# -----------------------------
+# Static images (if not versioned intentionally)
+# -----------------------------
+src/main/resources/static/images/
+
+# -----------------------------
+# OS junk
+# -----------------------------
+.DS_Store
+Thumbs.db

@@ -1,0 +1,6 @@
+@Etour_Backend_dotnet_HostAddress = http://localhost:5014
+
+GET {{Etour_Backend_dotnet_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
